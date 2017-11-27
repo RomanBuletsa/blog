@@ -6,7 +6,7 @@ devise :database_authenticatable, :registerable,
 
 
 
-
+has_many :photos
 has_many :posts
 has_many :postcomments
 
