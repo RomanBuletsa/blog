@@ -1,10 +1,12 @@
-<%= link_to "Upload new photo", new_photo_path, class: "btn btn-info" %>
-
+<p><%= link_to "Update new photo", new_photo_path, class: "btn btn-default"%></p>
 <% if @photos == [] %>
 <p>Photo ninchen</p>
 <% else %>
-  <% @photos.each do |photo| %>
-  <br><%= image_tag(photo.photo_url) %></br>
-    <br><%= photo.name %></br>
-  <% end %>
+<% @photos.each do |photo| %>
+<p><%= image_tag(photo.photo_url) %></p>
+<p><b><%= photo.category.name %></b></p>
+<p><b><%= photo.name %></b></p>
+<p><b><%= photo.user.nickname %></b></p>
+<p><%= link_to "Like", vote_photo_path(photo.id) %> (<%= @like[photo.id] %>)</p>
+<% end %>
 <% end %>

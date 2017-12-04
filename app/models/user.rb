@@ -9,6 +9,7 @@ devise :database_authenticatable, :registerable,
 has_many :photos
 has_many :posts
 has_many :postcomments
+has_many :votes
 
 validates :nickname, :password, :email, presence: true
 validates :nickname, length: { in: 6..15 }
